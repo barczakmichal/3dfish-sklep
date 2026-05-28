@@ -3,10 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
+import { useOrders } from "@/context/OrderContext";
 
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCart();
+  const { addOrder } = useOrders();
   const [submitted, setSubmitted] = useState(false);
+  const [orderNumber, setOrderNumber] = useState("");
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -20,7 +23,8 @@ export default function CheckoutPage() {
   });
 
   const deliveryCost = totalPrice >= 150 ? 0 : 14.99;
-  const finalTotal = totalPrice + deliveryCost;
+  const codFee = form.payment === "cod" ? 5 : 0;
+  const finalTotal = totalPrice + deliveryCost + codFee;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -28,6 +32,22 @@ export default function CheckoutPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const orderItems = items.map((i) => ({
+      productId: i.product.id,
+      productName: i.product.name,
+      productSlug: i.product.slug,
+      price: i.product.price,
+      quantity: i.quantity,
+    }));
+    const num = addOrder(
+      orderItems,
+      { firstName: form.firstName, lastName: form.lastName, email: form.email, phone: form.phone, street: form.street, city: form.city, postalCode: form.postalCode, notes: form.notes },
+      form.payment,
+      totalPrice,
+      deliveryCost,
+      codFee
+    );
+    setOrderNumber(num);
     setSubmitted(true);
     clearCart();
   };
@@ -47,7 +67,7 @@ export default function CheckoutPage() {
           </p>
           <p className="font-semibold text-emerald-600 mb-6">{form.email}</p>
           <p className="text-sm text-slate-400 mb-8">
-            Numer zamówienia: <span className="font-mono font-semibold text-slate-700">3DF-{Date.now().toString(36).toUpperCase()}</span>
+            Numer zamówienia: <span className="font-mono font-semibold text-slate-700">{orderNumber}</span>
           </p>
           <Link
             href="/"
@@ -270,7 +290,7 @@ export default function CheckoutPage() {
               <div className="border-t border-slate-100 pt-3 flex justify-between">
                 <span className="font-bold text-base">Do zapłaty</span>
                 <span className="font-bold text-xl">
-                  {(finalTotal + (form.payment === "cod" ? 5 : 0)).toFixed(2)} zł
+                  {finalTotal.toFixed(2)} zł
                 </span>
               </div>
             </div>

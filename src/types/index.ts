@@ -49,3 +49,50 @@ export interface OrderForm {
   postalCode: string;
   notes: string;
 }
+
+export type OrderStatus =
+  | "nowe"
+  | "oplacone"
+  | "w_druku"
+  | "wysłane"
+  | "dostarczone"
+  | "anulowane";
+
+export interface OrderItem {
+  productId: string;
+  productName: string;
+  productSlug: string;
+  price: number;
+  quantity: number;
+}
+
+export interface Order {
+  id: string;
+  orderNumber: string;
+  status: OrderStatus;
+  items: OrderItem[];
+  customer: OrderForm;
+  payment: string;
+  subtotal: number;
+  deliveryCost: number;
+  codFee: number;
+  total: number;
+  createdAt: string;
+  updatedAt: string;
+  statusHistory: { status: OrderStatus; timestamp: string; note?: string }[];
+}
+
+export interface PrintInfo {
+  productId: string;
+  stlSource: string;
+  stlFileName: string;
+  slicerProfile: string;
+  filamentType: string;
+  filamentBrand: string;
+  nozzleTemp: number;
+  bedTemp: number;
+  infill: string;
+  supports: boolean;
+  estimatedTime: string;
+  notes: string;
+}
