@@ -4,6 +4,15 @@ import Link from "next/link";
 import { Product } from "@/types";
 import { useCart } from "@/context/CartContext";
 
+const categoryEmoji: Record<string, string> = {
+  uchwyty: "🎣",
+  organizery: "📦",
+  sygnalizatory: "🔔",
+  podporki: "🏗️",
+  narzedzia: "🔧",
+  akcesoria: "⚙️",
+};
+
 export default function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
 
@@ -15,14 +24,9 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
-      <div className="relative aspect-square bg-gradient-to-br from-slate-50 to-slate-100 p-6 flex items-center justify-center overflow-hidden">
+      <Link href={`/produkty/${product.slug}`} className="relative aspect-square bg-gradient-to-br from-slate-50 to-slate-100 p-6 flex items-center justify-center overflow-hidden">
         <div className="text-7xl group-hover:scale-110 transition-transform duration-300">
-          {product.category === "uchwyty" && "🎣"}
-          {product.category === "organizery" && "📦"}
-          {product.category === "sygnalizatory" && "🔔"}
-          {product.category === "podporki" && "🏗️"}
-          {product.category === "narzedzia" && "🔧"}
-          {product.category === "akcesoria" && "⚙️"}
+          {categoryEmoji[product.category] || "🎣"}
         </div>
         {product.badge && (
           <span
@@ -31,7 +35,10 @@ export default function ProductCard({ product }: { product: Product }) {
             {product.badge}
           </span>
         )}
-      </div>
+        <span className="absolute bottom-2 right-2 text-[10px] text-slate-300">
+          MW#{product.makerWorldModelId}
+        </span>
+      </Link>
 
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-center gap-1 mb-2">

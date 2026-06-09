@@ -17,6 +17,9 @@ export interface Product {
   badge?: "nowość" | "bestseller" | "promocja";
   rating: number;
   reviewCount: number;
+  makerWorldUrl: string;
+  makerWorldModelId: string;
+  designer: string;
 }
 
 export type Category =
