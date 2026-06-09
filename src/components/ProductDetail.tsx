@@ -5,6 +5,7 @@ import { Product } from "@/types";
 import { getProductsByCategory, getCategory } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import ProductCard from "@/components/ProductCard";
+import { assetPath } from "@/lib/assetPath";
 import { useState } from "react";
 
 const categoryEmoji: Record<string, string> = {
@@ -56,7 +57,7 @@ export default function ProductDetail({ product }: { product: Product }) {
         <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl flex items-center justify-center aspect-square border border-slate-100 relative overflow-hidden">
           {product.images[0] && !product.images[0].endsWith(".svg") ? (
             <img
-              src={product.images[0]}
+              src={assetPath(product.images[0])}
               alt={product.name}
               className="w-full h-full object-cover"
             />

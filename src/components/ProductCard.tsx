@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Product } from "@/types";
 import { useCart } from "@/context/CartContext";
+import { assetPath } from "@/lib/assetPath";
 
 const categoryEmoji: Record<string, string> = {
   uchwyty: "🎣",
@@ -27,7 +28,7 @@ export default function ProductCard({ product }: { product: Product }) {
       <Link href={`/produkty/${product.slug}`} className="relative aspect-square bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center overflow-hidden">
         {product.images[0] && !product.images[0].endsWith(".svg") ? (
           <img
-            src={product.images[0]}
+            src={assetPath(product.images[0])}
             alt={product.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
