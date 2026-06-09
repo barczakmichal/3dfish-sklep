@@ -49,7 +49,7 @@ export const products: Product[] = [
       "Kompaktowy uchwyt ścienny na 3 wędki z solidnymi cylindrycznymi gniazdami. Gotowe otwory montażowe zapewniają prostą i bezpieczną instalację na ścianie. Utrzymuje wędki w pozycji pionowej, oszczędzając przestrzeń podłogową. Minimalne nawisy w konstrukcji zapewniają gładki wydruk 3D bez konieczności stosowania podpór.",
     shortDescription: "Ścienny, na 3 wędki, prosty montaż, oszczędza miejsce",
     category: "uchwyty",
-    images: ["/products/wall-mount-3rod.svg"],
+    images: ["/products/uchwyt-scienny-3-wedki.jpg"],
     features: [
       "Pomieści 3 wędki jednocześnie",
       "Otwory montażowe w zestawie",
@@ -78,7 +78,7 @@ export const products: Product[] = [
       "Sufitowy uchwyt na wędki idealny do garażu lub piwnicy. Montowany bezpośrednio nad drzwiami garażowymi, utrzymuje wędki z dala od przeszkód, jednocześnie zapewniając łatwy dostęp. Można zamontować go zarówno poziomo, jak i pionowo, dopasowując do swoich potrzeb.",
     shortDescription: "Montaż sufitowy, idealny do garażu, łatwy dostęp",
     category: "uchwyty",
-    images: ["/products/ceiling-holder.svg"],
+    images: ["/products/uchwyt-sufitowy-wedki.jpg"],
     features: [
       "Montaż sufitowy lub ścienny",
       "Idealny nad drzwiami garażu",
@@ -106,7 +106,7 @@ export const products: Product[] = [
       "Uchwyt na wędki zaprojektowany specjalnie do montażu na łodziach. Pomieści do 3 wędek i łatwo mocuje się do większości krawędzi burt lub relingów za pomocą wymiennych haków montażowych. Wytrzymała konstrukcja z PETG odporna na warunki morskie.",
     shortDescription: "Na łódź, do 3 wędek, wymienne haki montażowe",
     category: "uchwyty",
-    images: ["/products/boat-holder.svg"],
+    images: ["/products/uchwyt-wedki-lodz.jpg"],
     features: [
       "Pomieści do 3 wędek",
       "Wymienne haki montażowe",
@@ -135,7 +135,7 @@ export const products: Product[] = [
       "Solidny uchwyt na wędkę z wbudowanym hakiem na akcesoria. Otwory na śruby umożliwiają montaż na ścianie. Wzmocniona konstrukcja wytrzymuje ciężar wędki z kołowrotkiem. Drukowany w jednym kawałku, bez konieczności montażu.",
     shortDescription: "Solidny, z hakiem, montaż śrubowy, bez montażu",
     category: "uchwyty",
-    images: ["/products/hook-holder.svg"],
+    images: ["/products/uchwyt-wedka-hak.jpg"],
     features: [
       "Wbudowany hak na akcesoria",
       "Otwory montażowe na śruby",
@@ -163,7 +163,7 @@ export const products: Product[] = [
       "Idealny pojemnik na akcesoria wędkarskie zaprojektowany przez LemonArts. Wymiary 150x95x35mm mieszczą haczyki, obrotki, ciężarki i drobne elementy. Rączka na śrubę M2x25 zapewnia wygodne przenoszenie. Zamek zatrzaskowy chroni zawartość przed wypadnięciem.",
     shortDescription: "150x95x35mm, rączka śrubowa, zatrzask, by LemonArts",
     category: "organizery",
-    images: ["/products/tackle-box.svg"],
+    images: ["/products/pudelko-wedkarskie-tackle-box.png"],
     features: [
       "Wymiary: 150 x 95 x 35 mm",
       "Rączka na śrubę M2x25",
@@ -192,7 +192,7 @@ export const products: Product[] = [
       "Praktyczny organizer od LordXVI utrzymuje haczyki i żyłki w porządku. Oddzielne komory zapobiegają plątaniu się żyłek i wyginaniu haczyków. Kompaktowy format kieszonkowy idealny nad wodę. Zatrzaskowe zamknięcie chroni zawartość.",
     shortDescription: "Oddzielne komory, kieszonkowy, zatrzask, by LordXVI",
     category: "organizery",
-    images: ["/products/hook-organizer.svg"],
+    images: ["/products/organizer-haczyki-zylki.png"],
     features: [
       "Oddzielne komory na haczyki",
       "Sekcja na żyłki i przypony",
@@ -220,7 +220,7 @@ export const products: Product[] = [
       "Uchwyt na szpule żyłki dostępny w 3 wersjach dopasowanych do różnych potrzeb. Utrzymuje szpule w miejscu podczas nawijania, zapobiegając splątaniu. Prosty i niezawodny design, drukowany bez podpór. Idealne rozwiązanie do domowego warsztatu wędkarza.",
     shortDescription: "3 wersje, stabilne trzymanie szpul, bez podpór",
     category: "organizery",
-    images: ["/products/spool-holder.svg"],
+    images: ["/products/holder-szpule-zylki.jpg"],
     features: [
       "3 wersje do wyboru",
       "Stabilne trzymanie szpuli",
@@ -248,7 +248,7 @@ export const products: Product[] = [
       "Kompaktowe pudełko na przynęty wędkarskie — solidna konstrukcja w miniaturowym formacie. Idealne na kilka ulubionych wobblerów lub gumowych przynęt. Bezpieczne zamknięcie chroni zawartość przed wypadnięciem. Mieści się w kieszeni kurtki lub kamizelki wędkarskiej.",
     shortDescription: "Kompaktowy, na wobblery/gumy, kieszonkowy format",
     category: "organizery",
-    images: ["/products/mini-tackle.svg"],
+    images: ["/products/mini-tackle-box-przynety.png"],
     features: [
       "Kompaktowy format kieszonkowy",
       "Solidne zamknięcie",
@@ -276,7 +276,7 @@ export const products: Product[] = [
       "W pełni funkcjonalny sygnalizator brań typu bobbin do łowienia karpi. Składa się z 10 elementów, z czego 4 to wydruki 3D. Klips dopasowany do standardowych sygnalizatorów elektronicznych. Wymaga: 2 łożyska 5mm, śruba M3 z nakrętką, sprężyna od długopisu i silikonowa rurka 2mm.",
     shortDescription: "Karpiowy bobbin, 10 elementów, do sygnalizatorów",
     category: "sygnalizatory",
-    images: ["/products/carp-bobbin.svg"],
+    images: ["/products/sygnalizator-bran-karpiowy.jpg"],
     features: [
       "W pełni funkcjonalny",
       "Pasuje pod sygnalizatory",
@@ -305,7 +305,7 @@ export const products: Product[] = [
       "Sygnalizator brań z możliwością odkręcenia dolnej części w celu włożenia obciążników. Z boku można zamontować świetlik (bend light) ułatwiający obserwację brań w nocy. Prosty, ale niezawodny design sprawdzony przez wędkarzy karpiowych.",
     shortDescription: "Odkręcane obciążniki, mocowanie na świetlik, nocny",
     category: "sygnalizatory",
-    images: ["/products/bite-indicator.svg"],
+    images: ["/products/sygnalizator-bran-obciaznik.jpg"],
     features: [
       "Odkręcany pojemnik na obciążniki",
       "Mocowanie na świetlik (bend light)",
@@ -333,7 +333,7 @@ export const products: Product[] = [
       "Uniwersalny bankstick z gwintem 3/8 cala kompatybilny z wieloma systemami rod pod. Środkowa sekcja może być drukowana wielokrotnie jako przedłużka. Solidna konstrukcja z PETG zapewnia wytrzymałość na obciążenia. Idealny do konfiguracji karpiowych.",
     shortDescription: "Gwint 3/8, przedłużany, do rod pod, karpiowy",
     category: "podporki",
-    images: ["/products/bankstick.svg"],
+    images: ["/products/bankstick-rod-pod-rest.jpg"],
     features: [
       "Gwint standardowy 3/8 cala",
       "Modułowe przedłużanie",
@@ -361,7 +361,7 @@ export const products: Product[] = [
       "Klasyczna podpórka na wędkę dostępna w dwóch wersjach: z otworem gwintowanym na pręt lub z otworem na wklejanie pręta gwintowanego. Prosta i skuteczna konstrukcja sprawdzona przez setki wędkarzy. Lekka, ale wytrzymała dzięki odpowiedniemu wypełnieniu.",
     shortDescription: "2 wersje, gwintowana lub klejona, lekka i solidna",
     category: "podporki",
-    images: ["/products/rod-rest.svg"],
+    images: ["/products/podporka-wedka-rod-rest.jpg"],
     features: [
       "2 wersje do wyboru",
       "Gwint lub otwór na klej",
@@ -389,7 +389,7 @@ export const products: Product[] = [
       "Nawijak żyłki z wbudowaną osią pasującą do standardowej wiertarki. Umożliwia szybkie i bezproblemowe nawijanie lub odwijanie żyłki za pomocą wiertarki. Koniec z ręcznym kręceniem — oszczędź czas i nerwy. Solidna konstrukcja wytrzymuje wielokrotne użycie.",
     shortDescription: "Na wiertarkę, szybkie nawijanie/odwijanie żyłki",
     category: "narzedzia",
-    images: ["/products/line-spooler.svg"],
+    images: ["/products/nawijak-zylki-spooler.jpg"],
     features: [
       "Oś pasująca do wiertarki",
       "Szybkie nawijanie żyłki",
@@ -418,7 +418,7 @@ export const products: Product[] = [
       "Kompaktowy hook keeper montowany na wędkę za pomocą opasek zaciskowych lub gumowego O-ringa. Utrzymuje haczyk w bezpiecznej pozycji podczas transportu i przechowywania, zapobiegając plątaniu się żyłki i uszkodzeniom. Drukowany w jednej części, gotowy do użycia od razu.",
     shortDescription: "Na opaski/O-ring, zapobiega plątaniu, gotowy od razu",
     category: "narzedzia",
-    images: ["/products/hook-keeper.svg"],
+    images: ["/products/hook-keeper-wedka.jpg"],
     features: [
       "Montaż opaskami lub O-ringiem",
       "Bezpieczne trzymanie haczyka",
@@ -446,7 +446,7 @@ export const products: Product[] = [
       "Modularny system organizacji sprzętu do łowienia podlodowego. Szyna montażowa mocowana 2-3 śrubami, na którą nasuwają się wymienne akcesoria. Możesz je ustawiać w dowolnej kolejności. Idealny na sanki lodowe, namiot lub łódź. Rozbudowywalny system z wieloma dodatkami.",
     shortDescription: "Modularny system, szyna + akcesoria, na sanki/namiot",
     category: "akcesoria",
-    images: ["/products/ice-fishing.svg"],
+    images: ["/products/modularny-holder-lodowy.jpg"],
     features: [
       "Modularny system szyna + akcesoria",
       "Montaż na 2-3 śruby",
@@ -475,7 +475,7 @@ export const products: Product[] = [
       "Drukowana przynęta wędkarska typu lipless crankbait o długości 1.5 cala. Sprawdzona w łowieniu — łapie ryby naprawdę. Łatwa do wydrukowania z PETG (PLA też działa). Wymaga dodatkowych komponentów: kulki BB jako grzechotka, śruby oczkowe, obrotki i trokary.",
     shortDescription: "Lipless crankbait 1.5\", sprawdzona, PETG/PLA",
     category: "akcesoria",
-    images: ["/products/crankbait.svg"],
+    images: ["/products/przyneta-lipless-crankbait.png"],
     features: [
       "Sprawdzona skuteczność",
       "Długość 1.5 cala",

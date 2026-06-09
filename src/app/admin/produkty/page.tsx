@@ -96,6 +96,14 @@ export default function AdminProductsPage() {
                           <span className="text-slate-500 shrink-0 w-24">Plik:</span>
                           <span className="font-mono text-xs bg-slate-200 px-2 py-1 rounded">{printInfo.stlFileName}</span>
                         </div>
+                        {product.makerWorldUrl && (
+                          <div className="flex items-start gap-2">
+                            <span className="text-slate-500 shrink-0 w-24">MakerWorld:</span>
+                            <a href={product.makerWorldUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-medium">
+                              Pobierz plik 3D (#{product.makerWorldModelId})
+                            </a>
+                          </div>
+                        )}
                       </div>
                     </div>
 

@@ -24,10 +24,18 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
-      <Link href={`/produkty/${product.slug}`} className="relative aspect-square bg-gradient-to-br from-slate-50 to-slate-100 p-6 flex items-center justify-center overflow-hidden">
-        <div className="text-7xl group-hover:scale-110 transition-transform duration-300">
-          {categoryEmoji[product.category] || "🎣"}
-        </div>
+      <Link href={`/produkty/${product.slug}`} className="relative aspect-square bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center overflow-hidden">
+        {product.images[0] && !product.images[0].endsWith(".svg") ? (
+          <img
+            src={product.images[0]}
+            alt={product.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          <div className="text-7xl group-hover:scale-110 transition-transform duration-300">
+            {categoryEmoji[product.category] || "🎣"}
+          </div>
+        )}
         {product.badge && (
           <span
             className={`absolute top-3 left-3 ${badgeColor[product.badge]} text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide`}
@@ -35,9 +43,6 @@ export default function ProductCard({ product }: { product: Product }) {
             {product.badge}
           </span>
         )}
-        <span className="absolute bottom-2 right-2 text-[10px] text-slate-300">
-          MW#{product.makerWorldModelId}
-        </span>
       </Link>
 
       <div className="p-5 flex flex-col flex-1">

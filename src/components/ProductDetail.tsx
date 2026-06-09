@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { Product } from "@/types";
 import { getProductsByCategory, getCategory } from "@/data/products";
-import { getPrintInfo } from "@/data/printInfo";
 import { useCart } from "@/context/CartContext";
 import ProductCard from "@/components/ProductCard";
 import { useState } from "react";
@@ -21,7 +20,6 @@ export default function ProductDetail({ product }: { product: Product }) {
   const { addItem } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
-  const printInfo = getPrintInfo(product.id);
 
   const categoryInfo = getCategory(product.category);
   const related = getProductsByCategory(product.category)
@@ -55,15 +53,18 @@ export default function ProductDetail({ product }: { product: Product }) {
       </nav>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-        <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-12 flex items-center justify-center aspect-square border border-slate-100 relative">
-          <div className="text-[10rem]">
-            {categoryEmoji[product.category] || "🎣"}
-          </div>
-          <div className="absolute bottom-4 left-4 right-4 text-center">
-            <span className="text-xs text-slate-400 bg-white/80 px-3 py-1 rounded-full">
-              Zdjęcie ilustracyjne — model MakerWorld #{product.makerWorldModelId}
-            </span>
-          </div>
+        <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl flex items-center justify-center aspect-square border border-slate-100 relative overflow-hidden">
+          {product.images[0] && !product.images[0].endsWith(".svg") ? (
+            <img
+              src={product.images[0]}
+              alt={product.name}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="text-[10rem]">
+              {categoryEmoji[product.category] || "🎣"}
+            </div>
+          )}
         </div>
 
         <div>
@@ -77,11 +78,7 @@ export default function ProductDetail({ product }: { product: Product }) {
             </span>
           )}
 
-          <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
-
-          <p className="text-sm text-slate-400 mb-3">
-            Projektant: <span className="text-slate-600 font-medium">{product.designer}</span>
-          </p>
+          <h1 className="text-3xl font-bold mb-3">{product.name}</h1>
 
           <div className="flex items-center gap-2 mb-4">
             <div className="flex">
@@ -171,18 +168,6 @@ export default function ProductDetail({ product }: { product: Product }) {
             </button>
           </div>
 
-          <a
-            href={product.makerWorldUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full py-3.5 px-8 rounded-xl border-2 border-blue-500 text-blue-600 font-semibold hover:bg-blue-50 transition-all active:scale-95 mb-6"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-            </svg>
-            Pobierz plik 3D (MakerWorld)
-          </a>
-
           <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-100 mb-6">
             <div className="flex items-center gap-2 text-sm text-emerald-700">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -209,67 +194,15 @@ export default function ProductDetail({ product }: { product: Product }) {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              Opcja druku własnego
+              Druk 3D na zamówienie
             </h4>
             <p className="text-xs text-blue-700 leading-relaxed">
-              Masz drukarkę 3D? Pobierz plik z MakerWorld i wydrukuj sam.
-              Kupując u nas, dostajesz gotowy, skontrolowany wydruk z profesjonalnych materiałów.
+              Każdy produkt jest drukowany na zamówienie z profesjonalnych materiałów.
+              Po zakupie przygotowujemy wydruk i wysyłamy go bezpośrednio do Ciebie.
             </p>
           </div>
         </div>
       </div>
-
-      {printInfo && (
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-6">Parametry druku 3D</h2>
-          <div className="bg-white rounded-2xl border border-slate-100 p-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="bg-slate-50 rounded-lg p-4">
-                <span className="text-xs text-slate-400 block mb-1">Plik źródłowy</span>
-                <span className="font-medium text-sm">{printInfo.stlFileName}</span>
-              </div>
-              <div className="bg-slate-50 rounded-lg p-4">
-                <span className="text-xs text-slate-400 block mb-1">Filament</span>
-                <span className="font-medium text-sm">{printInfo.filamentBrand}</span>
-              </div>
-              <div className="bg-slate-50 rounded-lg p-4">
-                <span className="text-xs text-slate-400 block mb-1">Profil slicera</span>
-                <span className="font-medium text-sm">{printInfo.slicerProfile}</span>
-              </div>
-              <div className="bg-slate-50 rounded-lg p-4">
-                <span className="text-xs text-slate-400 block mb-1">Temperatura dyszy</span>
-                <span className="font-medium text-sm">{printInfo.nozzleTemp}°C</span>
-              </div>
-              <div className="bg-slate-50 rounded-lg p-4">
-                <span className="text-xs text-slate-400 block mb-1">Temperatura stołu</span>
-                <span className="font-medium text-sm">{printInfo.bedTemp}°C</span>
-              </div>
-              <div className="bg-slate-50 rounded-lg p-4">
-                <span className="text-xs text-slate-400 block mb-1">Wypełnienie</span>
-                <span className="font-medium text-sm">{printInfo.infill}</span>
-              </div>
-              <div className="bg-slate-50 rounded-lg p-4">
-                <span className="text-xs text-slate-400 block mb-1">Podpory</span>
-                <span className="font-medium text-sm">{printInfo.supports ? "Tak" : "Nie"}</span>
-              </div>
-              <div className="bg-slate-50 rounded-lg p-4">
-                <span className="text-xs text-slate-400 block mb-1">Czas druku</span>
-                <span className="font-medium text-sm">{printInfo.estimatedTime}</span>
-              </div>
-              <div className="bg-slate-50 rounded-lg p-4">
-                <span className="text-xs text-slate-400 block mb-1">Źródło modelu</span>
-                <span className="font-medium text-sm">{printInfo.stlSource}</span>
-              </div>
-            </div>
-            {printInfo.notes && (
-              <div className="mt-4 p-4 bg-amber-50 rounded-lg border border-amber-100">
-                <span className="text-xs text-amber-600 font-semibold block mb-1">Uwagi do druku</span>
-                <p className="text-sm text-amber-800">{printInfo.notes}</p>
-              </div>
-            )}
-          </div>
-        </section>
-      )}
 
       {related.length > 0 && (
         <section>
